@@ -1,0 +1,1 @@
+  syntax = "proto3";  package proto;  option go_package ="../proto";  service Goods {      rpc Hello (Request) returns (Response) {}  }  message Request {      string Name = 1;  }  message Response {      string Msg = 1;  }
