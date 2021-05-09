@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/beego/beego/v2/server/web"
 	beego_context "github.com/beego/beego/v2/server/web/context"
@@ -23,7 +24,15 @@ type Greeter struct {
 func (greeter *Greeter) Hello(ctx context.Context, request *proto.Request) (*proto.Response, error){
 	fmt.Println("get client info, name is: ", request.Name)
 	response_msg := "Hello " + request.Name
-	return &proto.Response{Msg:response_msg}, nil
+	resp:=&proto.Response{}
+	resp.Msg = response_msg
+	resp.Code = 10
+	info := map[string]interface{}{
+		"name":"guolong",
+		"age":10,
+	}
+	resp.Info,_= json.Marshal(info)
+	return resp , nil
 }
 
 func RpcServer()  {

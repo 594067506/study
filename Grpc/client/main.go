@@ -27,13 +27,12 @@ func RpcRequest()  {
 		fmt.Println(err)
 	}
 
-	fmt.Println(result)
-
+	fmt.Println("result:",result)
+	fmt.Println("result.Code:",result.Code)
 	fmt.Println("I see, u see. I say ", name, "u say ", result.Msg)
 }
 
 
 func main()  {
-
-
+	RpcRequest()
 }
