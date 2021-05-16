@@ -21,7 +21,7 @@ func Addr(addr string) ServerOption {
 	}
 }
 
-func Do(opts ...ServerOption)  {
+func SetServer(opts ...ServerOption)  {
 
 	//先做必要的初始化
 	s:=&Server{
@@ -40,5 +40,9 @@ func Do(opts ...ServerOption)  {
 	fmt.Println("tw=====")
 	fmt.Println(s.address)
 	fmt.Println(s.network)
+}
 
+//options思想调用
+func Do()  {
+	SetServer(Network("111"),Addr("松江区"))
 }
