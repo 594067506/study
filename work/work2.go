@@ -4,6 +4,7 @@ package work
 import (
 	"database/sql"
 	"fmt"
+	"github.com/beego/beego/v2/client/httplib"
 	_ "github.com/go-sql-driver/mysql"
 	"strings"
 )
@@ -50,6 +51,7 @@ func NewUser() *user {
 //查询一行
 //查询到错误，封装错误信息向上抛出去由业务层来处理
 func QueryOneRow(u *user) (err error) {
+	httplib.Post()
 	str_sql:=fmt.Sprintf("se lect id,user_name,password,nike_name from user where id=%d",1)
 	row := DB.QueryRow(str_sql)
 	if err = row.Scan(&u.id, &u.user_name, &u.password,&u.nike_name);err!=nil {

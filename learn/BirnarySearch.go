@@ -9,22 +9,17 @@ type  Stable struct {
 }
 
 
-func  InitTable()  {
+func  InitTable()   {
 	var st Stable
-	st.Array = []int{}
-	st.Array = append(st.Array,7)
-	st.Array = append(st.Array,7)
-	st.Array = append(st.Array,7)
-	st.Array = append(st.Array,7)
-	st.Array = append(st.Array,9)
+	st.Array = []int{7,7,7,7,8}
 	st.Length = 5
-
 
 	fmt.Println(st.Array)
 	index:= BinarySearch(&st,8)
 
 	fmt.Println("index===",index)
 }
+
 
 func BinarySearch( st *Stable, key int ) int{
 	var  low ,height,mid int
@@ -33,10 +28,10 @@ func BinarySearch( st *Stable, key int ) int{
 		mid =  (low+height)/2
 		if key==st.Array[mid] {
 			//mid正好是是要查找的值,检查下是不是最右
-			fmt.Println("CheckRight",mid)
+			//fmt.Println("CheckRight",mid)
 			return CheckRight(st,mid)
 		}else if key>st.Array[mid] {
-			low = mid+1;
+			low = mid+1
 		}else{
 			height = mid-1
 		}

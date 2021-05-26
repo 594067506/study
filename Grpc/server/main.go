@@ -31,6 +31,7 @@ func (greeter *Greeter) Hello(ctx context.Context, request *proto.Request) (*pro
 		"name":"guolong",
 		"age":10,
 	}
+
 	resp.Info,_= json.Marshal(info)
 	return resp , nil
 }
@@ -94,6 +95,6 @@ func HttpServerForBeego()  {
 
 
 func main()  {
-	RpcServer()
+	HttpServerForBeego()
 }
 
