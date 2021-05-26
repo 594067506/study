@@ -10,7 +10,7 @@ import (
 const (
 	userName = "root"
 	password = "123456"
-	ip = "120.24.43.187"
+	ip = "127.0.0.1"
 	port = "3306"
 	dbName = "onlinemall_bn"
 )
